@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your profile - Pulse Chat</title>
+  <meta name="description" content="Manage your Pulse Chat profile, avatar and password.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/profile.css">
+</head>
+<body class="profile-body">
+  <header class="topbar">
+    <a class="brand" href="chat.html" aria-label="Back to chats"><span class="brand__mark" data-icon="chat"></span>Pulse Chat</a>
+    <nav class="topbar__actions" aria-label="Profile navigation">
+      <a class="btn btn--ghost btn--sm" href="chat.html"><span data-icon="back"></span>Back to chats</a>
+      <button class="btn btn--danger-soft btn--sm" id="logoutBtn" type="button"><span data-icon="logout"></span>Log out</button>
+    </nav>
+  </header>
+
+  <main class="profile" id="main">
+    <section class="profile__hero" aria-labelledby="profileTitle">
+      <div class="profile__avatar" id="avatarPreview"></div>
+      <div class="profile__who">
+        <h1 id="profileTitle">Your profile</h1>
+        <p class="profile__email" id="emailText">Loading...</p>
+        <p class="profile__since" id="sinceText"></p>
+      </div>
+    </section>
+
+    <div id="formAlert" class="alert" role="alert" hidden></div>
+
+    <form class="card" id="profileForm" novalidate>
+      <h2>Public profile</h2>
+      <p class="card__lead">This is what other people see when they find you.</p>
+
+      <div class="field">
+        <span class="field__label" id="avatarLabel">Profile picture</span>
+        <div class="avatar-actions">
+          <label class="btn btn--soft btn--sm" for="avatarInput"><span data-icon="camera"></span>Upload photo</label>
+          <input class="sr-only" type="file" id="avatarInput" accept="image/png,image/jpeg,image/webp,image/gif" aria-labelledby="avatarLabel">
+          <button class="btn btn--ghost btn--sm" id="removeAvatarBtn" type="button" hidden>Remove photo</button>
+        </div>
+        <span class="field__hint">JPEG, PNG, WebP or GIF, up to 2 MB.</span>
+        <div class="field__error" id="avatarError" role="alert" hidden></div>
+      </div>
+
+      <div class="field">
+        <label for="username">Username</label>
+        <input id="username" name="username" type="text" maxlength="30" autocomplete="username" required>
+        <div class="field__error" id="usernameError" role="alert" hidden></div>
+      </div>
+
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" type="email" readonly aria-describedby="emailHint">
+        <span class="field__hint" id="emailHint">Your email is private and cannot be changed here.</span>
+      </div>
+
+      <div class="field">
+        <label for="bio">Bio</label>
+        <textarea id="bio" name="bio" maxlength="160" rows="3" placeholder="Tell people a little about yourself"></textarea>
+        <span class="field__hint"><span id="bioCount">0</span>/160</span>
+        <div class="field__error" id="bioError" role="alert" hidden></div>
+      </div>
+
+      <button class="btn btn--primary" id="saveBtn" type="submit"><span class="btn__label">Save changes</span></button>
+    </form>
+
+    <form class="card" id="passwordForm" novalidate>
+      <h2>Change password</h2>
+      <p class="card__lead">Changing your password signs you out of all other devices.</p>
+
+      <div class="field">
+        <label for="currentPassword">Current password</label>
+        <input id="currentPassword" type="password" autocomplete="current-password">
+        <div class="field__error" id="currentPasswordError" role="alert" hidden></div>
+      </div>
+      <div class="field">
+        <label for="newPassword">New password</label>
+        <input id="newPassword" type="password" autocomplete="new-password" aria-describedby="newPasswordHint">
+        <span class="field__hint" id="newPasswordHint">At least 8 characters, with a letter and a number.</span>
+        <div class="field__error" id="newPasswordError" role="alert" hidden></div>
+      </div>
+
+      <button class="btn btn--primary" id="passwordBtn" type="submit"><span class="btn__label">Update password</span></button>
+    </form>
+  </main>
+
+  <script type="module" src="js/profile.js"></script>
+</body>
+</html>

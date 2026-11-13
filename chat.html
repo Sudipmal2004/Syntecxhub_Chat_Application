@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Chats - Pulse Chat</title>
+  <meta name="description" content="Your Pulse Chat dashboard: private conversations and group rooms.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/chat.css">
+</head>
+<body class="app">
+  <div id="connectionBanner" class="conn-banner" role="status" aria-live="polite" hidden></div>
+
+  <div class="shell" id="shell" data-view="list">
+    <!-- Navigation rail -->
+    <nav class="rail" aria-label="Main navigation">
+      <a class="rail__logo" href="index.html" aria-label="Pulse Chat home"><span data-icon="chat"></span></a>
+      <div class="rail__nav">
+        <button class="rail__btn is-active" id="navChats" type="button" aria-label="Chats" title="Chats" aria-current="page"><span data-icon="chat"></span><b class="rail__dot" id="navUnread" hidden></b></button>
+        <button class="rail__btn" id="navRooms" type="button" aria-label="Discover rooms" title="Discover rooms"><span data-icon="compass"></span></button>
+        <a class="rail__btn" href="profile.html" aria-label="Profile" title="Profile"><span data-icon="user"></span></a>
+      </div>
+      <div class="rail__bottom">
+        <a class="rail__me" id="navMe" href="profile.html" aria-label="Your profile" title="Your profile"></a>
+        <button class="rail__btn rail__btn--logout" id="logoutBtn" type="button" aria-label="Log out" title="Log out"><span data-icon="logout"></span></button>
+      </div>
+    </nav>
+
+    <!-- Conversation list -->
+    <aside class="sidebar" id="sidebar" aria-label="Conversations">
+      <header class="sidebar__header">
+        <div>
+          <h1 class="sidebar__title">Messages</h1>
+          <p class="sidebar__sub" id="sidebarSub">Loading...</p>
+        </div>
+        <button class="icon-btn icon-btn--filled" id="newRoomBtn" type="button" aria-label="Create a new room" title="New room"><span data-icon="plus"></span></button>
+      </header>
+
+      <div class="search">
+        <span class="search__icon" data-icon="search"></span>
+        <label class="sr-only" for="userSearch">Search people</label>
+        <input id="userSearch" type="search" placeholder="Search people to chat with" autocomplete="off" maxlength="50">
+        <button class="search__clear" id="clearSearch" type="button" aria-label="Clear search" hidden><span data-icon="close"></span></button>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Conversation filter" id="tabs">
+        <button class="tabs__btn is-active" role="tab" aria-selected="true" data-tab="chats" id="tabChats">Chats</button>
+        <button class="tabs__btn" role="tab" aria-selected="false" data-tab="rooms" id="tabRooms">Discover rooms</button>
+      </div>
+
+      <div class="list" id="listBody" aria-live="polite"></div>
+    </aside>
+
+    <!-- Conversation -->
+    <main class="chat" id="chatPane" aria-label="Conversation">
+      <div class="chat__empty" id="chatEmpty">
+        <div class="chat__empty-art" aria-hidden="true"><span data-icon="chat"></span></div>
+        <h2>Select a conversation</h2>
+        <p>Choose a chat from the list, or search for someone by username to start a new one.</p>
+        <button class="btn btn--soft" id="emptyNewRoom" type="button">Create a room</button>
+      </div>
+
+      <section class="chat__view" id="chatView" hidden>
+        <header class="chat__header">
+          <button class="icon-btn chat__back" id="backBtn" type="button" aria-label="Back to conversations"><span data-icon="back"></span></button>
+          <div id="headerAvatar"></div>
+          <div class="chat__title">
+            <h2 id="chatTitle"></h2>
+            <p class="chat__subtitle" id="chatSubtitle"></p>
+          </div>
+          <button class="icon-btn" id="infoBtn" type="button" aria-label="Conversation details" aria-pressed="false"><span data-icon="info"></span></button>
+        </header>
+
+        <div class="messages" id="messages" role="log" aria-live="polite" aria-label="Messages" tabindex="0"></div>
+
+        <form class="composer" id="composer" autocomplete="off">
+          <label class="sr-only" for="messageInput">Message</label>
+          <textarea id="messageInput" rows="1" maxlength="2000" placeholder="Write a message..." enterkeyhint="send"></textarea>
+          <button class="send-btn" id="sendBtn" type="submit" aria-label="Send message" disabled><span data-icon="send"></span></button>
+        </form>
+      </section>
+    </main>
+
+    <!-- Details panel -->
+    <aside class="info" id="infoPanel" aria-label="Conversation details" hidden></aside>
+  </div>
+
+  <div id="modalRoot"></div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script type="module" src="js/chat.js"></script>
+</body>
+</html>

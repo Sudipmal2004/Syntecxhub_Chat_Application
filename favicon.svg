@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Pulse Chat">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9a7dff"/>
+      <stop offset="1" stop-color="#6d4ff5"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#g)"/>
+  <path d="M18 20h28a4 4 0 0 1 4 4v14a4 4 0 0 1-4 4H33l-9 7v-7h-6a4 4 0 0 1-4-4V24a4 4 0 0 1 4-4z" fill="#fff"/>
+  <circle cx="25" cy="31" r="2.6" fill="#7c5cfc"/>
+  <circle cx="32" cy="31" r="2.6" fill="#7c5cfc"/>
+  <circle cx="39" cy="31" r="2.6" fill="#7c5cfc"/>
+</svg>

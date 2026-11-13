@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pulse Chat - Real-time messaging</title>
+  <meta name="description" content="Pulse Chat is a real-time messaging app with private conversations, group rooms, live presence and typing indicators.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="landing">
+  <header class="landing__nav">
+    <a class="brand" href="index.html" aria-label="Pulse Chat home">
+      <span class="brand__mark" data-icon="chat"></span>
+      Pulse Chat
+    </a>
+    <nav class="landing__nav-actions" aria-label="Account">
+      <a class="btn btn--ghost btn--sm" href="login.html">Log in</a>
+      <a class="btn btn--primary btn--sm" href="register.html">Get started</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="hero__eyebrow">Real-time messaging, built with Node.js and Socket.IO</p>
+        <h1>Conversations that move at the <span>speed of thought.</span></h1>
+        <p class="hero__lead">Chat privately, build group rooms, and see who is online and typing, all synced instantly and stored safely in MongoDB.</p>
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="register.html">Create free account</a>
+          <a class="btn btn--ghost" href="login.html">I already have an account</a>
+        </div>
+      </div>
+
+      <div class="mock" aria-hidden="true">
+        <div class="mock__bar">
+          <span class="avatar avatar--md" id="mockAvatar">P</span>
+          <div><strong>Priya Sharma</strong><small>Online</small></div>
+        </div>
+        <div class="mock__body">
+          <div class="mock__msg mock__msg--in">Did the Socket.IO demo work on your side?</div>
+          <div class="mock__msg mock__msg--out">Yes! Messages show up instantly, even typing status.</div>
+          <div class="mock__msg mock__msg--in">Amazing. Shipping it to GitHub tonight.</div>
+          <div class="mock__typing"><i></i><i></i><i></i></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="features" aria-labelledby="featuresTitle">
+      <h2 id="featuresTitle">Everything a modern chat needs</h2>
+      <p class="features__lead">A complete full-stack project: secure auth, REST API, real-time events and a polished interface.</p>
+      <ul class="features__grid">
+        <li class="feature"><span class="feature__icon" data-icon="bolt"></span><h3>Instant delivery</h3><p>Messages are saved to MongoDB and pushed over WebSockets with delivered and read receipts.</p></li>
+        <li class="feature"><span class="feature__icon" data-icon="chat"></span><h3>Private conversations</h3><p>Search any registered user and start a one-to-one chat in a single click.</p></li>
+        <li class="feature"><span class="feature__icon" data-icon="users"></span><h3>Group rooms</h3><p>Create public or private rooms, join or leave in real time, and manage members.</p></li>
+        <li class="feature"><span class="feature__icon" data-icon="globe"></span><h3>Live presence</h3><p>Online and offline status with last-seen times, plus animated typing indicators.</p></li>
+        <li class="feature"><span class="feature__icon" data-icon="clock"></span><h3>Persistent history</h3><p>Every conversation is stored and loaded with cursor-based pagination for fast scrolling.</p></li>
+        <li class="feature"><span class="feature__icon" data-icon="shield"></span><h3>Secure by design</h3><p>bcrypt hashing, JWT sessions, rate limiting, validation and a strict content security policy.</p></li>
+      </ul>
+    </section>
+
+    <section class="stack" aria-labelledby="stackTitle">
+      <h2 id="stackTitle">Built with</h2>
+      <ul class="stack__list">
+        <li>HTML5</li><li>CSS3</li><li>Vanilla JavaScript</li><li>Node.js</li><li>Express</li><li>MongoDB</li><li>Mongoose</li><li>Socket.IO</li><li>JWT</li><li>bcrypt</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="landing__footer">Pulse Chat - a full-stack portfolio project.</footer>
+
+  <script type="module" src="js/landing.js"></script>
+</body>
+</html>

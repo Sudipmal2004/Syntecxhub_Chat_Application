@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Log in - Pulse Chat</title>
+  <meta name="description" content="Log in to Pulse Chat to continue your conversations.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body class="auth-body">
+  <main class="auth">
+    <section class="auth__brand" aria-hidden="true">
+      <div class="auth__brand-top">
+        <span class="brand"><span class="brand__mark" data-icon="chat"></span>Pulse Chat</span>
+        <h2 class="auth__headline">Pick up the conversation <span>right where you left it.</span></h2>
+        <p class="auth__sub">Your messages, rooms and contacts are waiting, synced in real time.</p>
+      </div>
+      <ul class="auth__points">
+        <li><span class="icon-chip" data-icon="bolt"></span>Instant message delivery</li>
+        <li><span class="icon-chip" data-icon="users"></span>Private chats and group rooms</li>
+        <li><span class="icon-chip" data-icon="shield"></span>Encrypted passwords, secure sessions</li>
+      </ul>
+      <div class="auth__preview">
+        <div class="mock__body">
+          <div class="mock__msg mock__msg--in">Are you online? Let's review the release.</div>
+          <div class="mock__msg mock__msg--out">Just logged in, give me two minutes.</div>
+          <div class="mock__typing"><i></i><i></i><i></i></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="auth__panel">
+      <div class="auth__card">
+        <a class="brand" href="index.html" aria-label="Pulse Chat home"><span class="brand__mark" data-icon="chat"></span>Pulse Chat</a>
+        <h1>Welcome back</h1>
+        <p class="auth__lead">Log in to continue your conversations.</p>
+
+        <div id="formAlert" class="alert" role="alert" hidden></div>
+
+        <form id="loginForm" novalidate>
+          <div class="field">
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required aria-describedby="emailError">
+            <p class="field__error" id="emailError" hidden></p>
+          </div>
+
+          <div class="field">
+            <label for="password">Password</label>
+            <div class="input-wrap">
+              <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Your password" required aria-describedby="passwordError">
+              <button type="button" class="input-toggle" id="togglePassword" aria-label="Show password" aria-pressed="false">Show</button>
+            </div>
+            <p class="field__error" id="passwordError" hidden></p>
+          </div>
+
+          <button class="btn btn--primary btn--block" type="submit" id="submitBtn"><span class="btn__label">Log in</span></button>
+        </form>
+
+        <p class="auth__switch">New to Pulse Chat? <a href="register.html">Create an account</a></p>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="js/auth.js"></script>
+</body>
+</html>

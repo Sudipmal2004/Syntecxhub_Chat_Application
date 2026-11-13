@@ -1,0 +1,80 @@
+/* Login + registration pages */
+
+.auth-body { background: var(--surface); }
+
+.auth {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  min-height: 100vh;
+}
+
+/* ------------------------------------------------------------ brand side */
+
+.auth__brand {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 36px;
+  padding: 56px;
+  overflow: hidden;
+  background:
+    radial-gradient(520px 340px at 15% 10%, #e4daff 0%, transparent 70%),
+    radial-gradient(480px 360px at 95% 95%, #d9ccff 0%, transparent 70%),
+    linear-gradient(160deg, #f4f0ff, #ebe4ff);
+}
+.auth__brand::after {
+  content: "";
+  position: absolute;
+  top: -120px;
+  right: -120px;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: rgba(124, 92, 252, 0.1);
+}
+.auth__brand-top { position: relative; z-index: 1; }
+.auth__headline { margin-top: 36px; max-width: 460px; font-size: clamp(30px, 3.2vw, 44px); line-height: 1.1; letter-spacing: -0.03em; font-weight: 800; }
+.auth__headline span { color: var(--primary); }
+.auth__sub { margin-top: 14px; max-width: 440px; color: var(--text-soft); font-size: 17px; }
+
+.auth__points { position: relative; z-index: 1; display: grid; gap: 14px; }
+.auth__points li { display: flex; align-items: center; gap: 12px; font-weight: 600; color: var(--text); }
+.auth__points .icon-chip { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 10px; background: rgba(255, 255, 255, 0.85); color: var(--primary); box-shadow: var(--shadow-sm); }
+
+.auth__preview {
+  position: relative;
+  z-index: 1;
+  max-width: 400px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(6px);
+}
+.auth__preview .mock__body { padding: 0; }
+
+/* ------------------------------------------------------------- form side */
+
+.auth__panel { display: grid; place-items: center; padding: 40px 24px; }
+.auth__card { width: min(420px, 100%); }
+.auth__card .brand { margin-bottom: 36px; }
+.auth__card h1 { font-size: 30px; letter-spacing: -0.025em; }
+.auth__lead { margin: 8px 0 26px; color: var(--text-soft); }
+.auth__switch { margin-top: 22px; text-align: center; color: var(--text-soft); font-size: 15px; }
+.auth__switch a { font-weight: 600; }
+
+.btn__label { display: inline-flex; align-items: center; gap: 8px; }
+
+.pw-rules { display: flex; flex-wrap: wrap; gap: 6px 12px; margin-top: 2px; font-size: 12.5px; color: var(--text-faint); }
+.pw-rules li { display: inline-flex; align-items: center; gap: 5px; }
+.pw-rules li::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--border-strong); transition: background 0.2s var(--ease); }
+.pw-rules li.is-met { color: #14693a; }
+.pw-rules li.is-met::before { background: var(--success); }
+
+@media (max-width: 900px) {
+  .auth { grid-template-columns: 1fr; }
+  .auth__brand { display: none; }
+  .auth__panel { align-items: start; padding-top: 48px; }
+}
